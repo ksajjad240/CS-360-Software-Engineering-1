@@ -2,5 +2,9 @@
 README for Assignment-8 ("Microservice A" Implementation (Milestone # 2))
 
 ![Alt text](./README_images/image1.png)
+![Alt text](./README_images/image2.png)
+![Alt text](./README_images/image3.png)
+![Alt text](./README_images/image4.png)
+![Alt text](./README_images/image5.png)
+![Alt text](./README_images/image6.png)
 
-For a detailed explanation of the Microservice, please refer to the [README.pdf](./README.pdf)
