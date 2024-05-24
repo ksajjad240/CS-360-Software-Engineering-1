@@ -2,4 +2,4 @@
 README for Assignment-8
 ## Detailed Documentation
 
-For a detailed explanation of the project, please refer to README.pdf (./README.pdf).
+For a detailed explanation of the project, please refer to README.pdf (./docs/README.pdf).
