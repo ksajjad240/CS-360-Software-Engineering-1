@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 9: Sprint 3 Plan (for Milestone #3)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #00ffdd;
+            color: black;
+            padding: 10px 0;
+            text-align: center;
+        }
+        section {
+            background-color: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+	<header>
+        <h1>Assignment 9: Sprint 3 Plan (for Milestone #3)</h1>
+    </header>
+
+    <section>
+        <h2>1) Microservice B: getUpcomingPayments()</h2>
+        <p>The getUpcomingPayments() API call is designed to retrieve a list of payments that are scheduled for future dates beyond the current day. This service is particularly useful for users who want to keep track of their upcoming financial obligations and ensure they are prepared for any pending payments. When a GET request is made to the /paymentManagement/upcomingPayments endpoint, the server responds with a JSON array containing details of each upcoming payment, including the vendor name, amount due, due date, and payment status. This allows users to have a clear and organized view of all their upcoming payments, helping them manage their finances more effectively and avoid missing any due dates.</p>
+		
+		<p>This service retrieves the list of upcoming payments that are due after today's date.</p>
+        <h3>Request</h3>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>URL:</strong> <code>/api/upcoming-payments</code></p>
+        <h3>Response</h3>
+        <pre><code>[
+		{
+        "id": "uuid-1",
+        "vendor": "Electricity",
+        "amount": 150,
+        "dueDate": "2024-06-05",
+        "status": "Pending"
+		},
+		]</code></pre>
+	</section>
+	
+	<section>
+		<h2>2) Microservice B: getCurrentPayments()</h2>
+		<p>The getCurrentPayments() API call is designed to retrieve a list of payments that are due on the current date. This service is particularly useful for users who need to stay on top of their immediate financial obligations and ensure that they do not miss any payments due today. When a GET request is made to the /paymentManagement/currentPayments endpoint, the server responds with a JSON array that includes detailed information about each payment due today, such as the vendor name, payment amount, due date, and payment status. This real-time overview allows users to quickly identify and address their current financial responsibilities, promoting timely payments and helping to avoid late fees or service interruptions.</p>
+		
+		<p>This service retrieves the list of payments that are due today.</p>
+        <h3>Request</h3>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>URL:</strong> <code>/api/current-payments</code></p>
+        <h3>Response</h3>
+        <pre><code>[
+		{
+        "id": "uuid-1",
+        "vendor": "Rent",
+        "amount": 1200,
+        "dueDate": "2024-06-01",
+        "status": "Pending"
+		},
+		...
+		]</code></pre>
+	</section>
+
+	<section>
+		<h2>3) Microservice C: getPaymentHistory()</h2>
+        <p>The getPaymentHistory() API call provides users with a comprehensive record of their past payments that have been completed and marked as paid. By making a GET request to the /paymentManagement/paymentHistory endpoint, users receive a detailed JSON array of historical payment transactions. Each entry in the response includes critical information such as the vendor name, payment amount, due date, actual payment date, and the payment status. This service is essential for users who need to review their payment history for budgeting, financial tracking, or reconciliation purposes. By offering a clear and accessible log of past payments, the getPaymentHistory() API call helps users maintain financial transparency and accountability.</p>
+		
+		<p>This service retrieves the list of past payments that have been marked as paid.</p>
+        <h3>Request</h3>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>URL:</strong> <code>/api/payment-history</code></p>
+        <h3>Response</h3>
+        <pre><code>[
+		{
+        "id": "uuid-101",
+        "vendor": "Rent",
+        "amount": 1200,
+        "dueDate": "2024-05-01",
+        "paymentDate": "2024-05-01",
+        "status": "Paid"
+		},
+    ...
+		]</code></pre>
+	</section>
+	
+	<section>
+		<h2>4) Microservice C: searchPaymentsByVendor()</h2>
+		<p>The searchPaymentsByVendor() API call allows users to efficiently search for payments associated with a specific vendor. By making a GET request to the /paymentManagement/searchPaymentsByVendor endpoint with a vendor query parameter, users can retrieve a filtered list of payments related to the specified vendor. This functionality is particularly valuable for users who need to review all transactions involving a particular vendor, whether for budgeting, auditing, or tracking purposes. The server responds with a JSON array containing detailed information about each relevant payment, including the vendor name, amount, due date, and payment status. This targeted search capability enhances financial management by enabling users to quickly access and review payments specific to any vendor, ensuring better control and oversight of their expenses.</p>
+		
+		<p>This service searches for payments by the vendor name.</p>
+        <h3>Request</h3>
+        <p><strong>Method:</strong> GET</p>
+        <p><strong>URL:</strong> <code>/api/search-payments?vendor=<vendor_name></code></p>
+        <p><strong>Query Parameter:</strong> <code>vendor</code> (required) - The name of the vendor to search for.</p>
+        <h3>Response</h3>
+        <pre><code>[
+		{
+        "id": "uuid-10",
+        "vendor": "Spotify",
+        "amount": 10,
+        "dueDate": "2024-05-10",
+        "status": "Paid"
+		},
+    ...
+		]</code></pre>
+	</section>
+	
+	<section>
+		<h2>5) Microservice D: registerUser()</h2>
+		<p>The registerUser() API call facilitates the registration of new users by securely capturing their credentials. When a POST request is made to the /paymentManagement/register endpoint with a JSON body containing a username and password, the server processes this information to create a new user account. The password is hashed using bcrypt before being stored, ensuring that user data is protected against unauthorized access. Upon successful registration, the server responds with a confirmation message indicating that the user has been registered successfully. This service is a critical entry point for users to access the system, enabling them to create an account and start managing their payments through the platform's secure and user-friendly interface.</p>
+		
+		<p>This service registers a new user by accepting a username and password.</p>
+        <h3>Request</h3>
+        <p><strong>Method:</strong> POST</p>
+        <p><strong>URL:</strong> <code>/api/register</code></p>
+        <p><strong>Body:</strong> (application/json)</p>
+        <pre><code>{
+		"username": "testuser",
+		"password": "testpassword"
+		}</code></pre>
+        <h3>Response</h3>
+        <pre><code>[
+		{
+		"message": "User registered successfully"
+		}
+		] </code></pre>
+	</section>
+
+	<section>
+		<h2>6) Microservice D: authenticateUser()</h2>
+		<p>The authenticateUser() API call is essential for verifying user credentials and granting access to the system. When a POST request is made to the /paymentManagement/login endpoint with a JSON body containing the username and password, the server validates the provided credentials against the stored user data. If the authentication is successful, the server generates a JWT (JSON Web Token) and returns it in the response, along with a message indicating successful authentication. This token can then be used for subsequent requests to authenticate the user and authorize access to protected resources within the application. By securely validating user credentials and issuing a token, the authenticateUser() API call ensures that only authorized users can access and manage their financial information, maintaining the integrity and security of the system.</p>
+		
+        <p>This service authenticates a user by accepting a username and password, and returns a JWT token if successful.</p>
+        <h3>Request</h3>
+        <p><strong>Method:</strong> POST</p>
+        <p><strong>URL:</strong> <code>/api/login</code></p>
+        <p><strong>Body:</strong> (application/json)</p>
+        <pre><code>{
+		"username": "testuser",
+		"password": "testpassword"
+		}</code></pre>
+        <h3>Response</h3>
+        <pre><code>[
+		{
+		"message": "Authentication successful",
+		"token": "your_jwt_token"
+		}
+		] </code></pre>
+    </section>
+</body>
+</html>
