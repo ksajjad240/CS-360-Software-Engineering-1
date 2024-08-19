@@ -6,3 +6,4 @@ README for Assignment 10: "Microservices B, C and D" Implementation, Integration
 ![Alt text](./README_images/image3.png)
 ![Alt text](./README_images/image4.png)
 ![Alt text](./README_images/image5.png)
+![Alt text](./README_images/image6.png)
