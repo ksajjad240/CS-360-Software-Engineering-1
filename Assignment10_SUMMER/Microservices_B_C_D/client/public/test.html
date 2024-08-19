@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PayTrac Client</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .payment {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PayTrac Client</h1>
+        <button onclick="fetchCurrentPayments()">Get Current Payments</button>
+        <button onclick="fetchUpcomingPayments()">Get Upcoming Payments</button>
+        
+        <h2>Current Payments</h2>
+        <div id="currentPayments"></div>
+        
+        <h2>Upcoming Payments</h2>
+        <div id="upcomingPayments"></div>
+    </div>
+
+    <!-- Include Axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- Include Client JS -->
+    <script src="client.js"></script>
+</body>
+</html>
